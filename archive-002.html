@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NV-07 // ARCHIVE 002</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #050505;
+    color: #d8d8d8;
+    font-family: "Courier New", monospace;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+header {
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.system {
+    color: #666;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+h1 {
+    font-size: 42px;
+    letter-spacing: 7px;
+    margin: 12px 0;
+}
+
+.classified {
+    color: #555;
+    letter-spacing: 3px;
+}
+
+.back {
+    display: inline-block;
+    color: #666;
+    text-decoration: none;
+    border: 1px solid #292929;
+    padding: 10px 15px;
+    margin-bottom: 50px;
+}
+
+.back:hover {
+    color: #fff;
+    border-color: #777;
+}
+
+.lock {
+    text-align: center;
+    border: 1px solid #292929;
+    padding: 50px 25px;
+    background: #080808;
+}
+
+.lock-symbol {
+    font-size: 40px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.lock h2 {
+    font-size: 22px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.lock p {
+    color: #555;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+input {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 25px;
+    padding: 14px;
+    background: #030303;
+    border: 1px solid #333;
+    color: #ddd;
+    font-family: "Courier New", monospace;
+    text-align: center;
+    letter-spacing: 4px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #777;
+}
+
+button {
+    display: block;
+    margin: 15px auto 0;
+    padding: 12px 25px;
+    background: #080808;
+    border: 1px solid #333;
+    color: #777;
+    font-family: "Courier New", monospace;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    color: #fff;
+    border-color: #777;
+}
+
+#error {
+    display: none;
+    margin-top: 20px;
+    color: #666;
+    font-size: 11px;
+}
+
+#archive {
+    display: none;
+}
+
+.data {
+    border: 1px solid #292929;
+    padding: 25px;
+    background: #080808;
+    line-height: 2;
+    color: #888;
+}
+
+.data strong {
+    color: #bbb;
+    font-weight: normal;
+}
+
+.warning {
+    margin-top: 30px;
+    border: 1px solid #292929;
+    padding: 15px;
+    color: #555;
+    font-size: 11px;
+}
+
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    color: #444;
+    text-align: center;
+    font-size: 11px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <div class="system">NV-07 // INTERNAL DATABASE</div>
+    <h1>ARCHIVE 002</h1>
+    <div class="classified">[ RESTRICTED ACCESS ]</div>
+</header>
+
+<a href="index.html" class="back">
+    ← RETURN TO ARCHIVE DIRECTORY
+</a>
+
+<div class="lock" id="lock">
+
+    <div class="lock-symbol">■</div>
+
+    <h2>ARCHIVE LOCKED</h2>
+
+    <p>
+        THIS ARCHIVE REQUIRES A VALID<br>
+        RECOVERY CODE.
+    </p>
+
+    <input
+        type="text"
+        id="code"
+        placeholder="ENTER CODE"
+        autocomplete="off"
+    >
+
+    <button onclick="unlock()">
+        AUTHENTICATE
+    </button>
+
+    <div id="error">
+        ACCESS DENIED // INVALID CODE
+    </div>
+
+</div>
+
+<div id="archive">
+
+    <h2>ACCESS GRANTED</h2>
+
+    <div class="data">
+
+        &gt; RECOVERY CODE ACCEPTED<br>
+        &gt; FILE: NV07-002<br>
+        &gt; STATUS: RECOVERED<br>
+        &gt; DATA INTEGRITY: 41%<br>
+        &gt; SOURCE: UNKNOWN<br>
+        &gt; SIGNAL: <strong>ACTIVE</strong>
+
+    </div>
+
+    <div class="warning">
+        WARNING: ARCHIVE 002 CONTAINS UNVERIFIED DATA.
+    </div>
+
+</div>
+
+<footer>
+    NV-07 // ARCHIVE NETWORK © 2026 // RESTRICTED
+</footer>
+
+</div>
+
+<script>
+
+function unlock() {
+
+    const input = document.getElementById("code");
+    const lock = document.getElementById("lock");
+    const archive = document.getElementById("archive");
+    const error = document.getElementById("error");
+
+    if (input.value.trim() === "031742") {
+
+        lock.style.display = "none";
+        archive.style.display = "block";
+
+    } else {
+
+        error.style.display = "block";
+
+    }
+}
+
+document.getElementById("code").addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        unlock();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
