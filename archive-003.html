@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NV-07 // ARCHIVE 003</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #030303;
+    color: #bdbdbd;
+    font-family: "Courier New", monospace;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+header {
+    border-bottom: 1px solid #292929;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.system {
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+h1 {
+    margin: 15px 0;
+    font-size: 44px;
+    letter-spacing: 8px;
+    color: #ddd;
+}
+
+.subtitle {
+    color: #555;
+    letter-spacing: 3px;
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 40px;
+    padding: 10px 15px;
+    border: 1px solid #292929;
+    color: #555;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+.back:hover {
+    color: #aaa;
+    border-color: #555;
+}
+
+.lock {
+    border: 1px solid #252525;
+    background: #070707;
+    padding: 45px 25px;
+    text-align: center;
+}
+
+.lock-symbol {
+    color: #444;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.lock h2 {
+    color: #999;
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+.lock p {
+    color: #555;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+input {
+    width: min(320px, 100%);
+    padding: 14px;
+    margin-top: 20px;
+
+    background: #020202;
+    border: 1px solid #333;
+
+    color: #ddd;
+    font-family: "Courier New", monospace;
+    text-align: center;
+    letter-spacing: 4px;
+
+    outline: none;
+}
+
+input:focus {
+    border-color: #666;
+}
+
+button {
+    display: block;
+    width: min(320px, 100%);
+    margin: 12px auto 0;
+
+    padding: 13px;
+
+    background: #080808;
+    border: 1px solid #333;
+
+    color: #777;
+    font-family: "Courier New", monospace;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    color: #ccc;
+    border-color: #666;
+}
+
+#error {
+    display: none;
+    margin-top: 18px;
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+#content {
+    display: none;
+}
+
+.notice {
+    border-left: 2px solid #555;
+    background: #070707;
+    padding: 18px;
+
+    color: #777;
+    font-size: 11px;
+    line-height: 1.9;
+
+    margin-bottom: 30px;
+}
+
+.data {
+    border: 1px solid #222;
+    background: #070707;
+    padding: 25px;
+
+    color: #777;
+    font-size: 11px;
+    line-height: 2;
+}
+
+.data strong {
+    color: #aaa;
+    font-weight: normal;
+}
+
+.signal {
+    margin-top: 30px;
+    border: 1px solid #222;
+    background: #020202;
+    padding: 25px;
+
+    color: #777;
+    font-size: 11px;
+    line-height: 2;
+}
+
+.signal .active {
+    color: #aaa;
+}
+
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+
+    text-align: center;
+
+    color: #3d3d3d;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<header>
+
+<div class="system">
+NV-07 // INTERNAL DATABASE
+</div>
+
+<h1>ARCHIVE 003</h1>
+
+<div class="subtitle">
+[ NODE ACCESS // NON-STANDARD ]
+</div>
+
+</header>
+
+
+<a href="index.html" class="back">
+← RETURN TO ARCHIVE DIRECTORY
+</a>
+
+
+<div id="lock">
+
+<div class="lock">
+
+<div class="lock-symbol">
+■
+</div>
+
+<h2>
+RESTRICTED NODE
+</h2>
+
+<p>
+THIS ARCHIVE IS NOT LISTED<br>
+IN THE STANDARD DIRECTORY.
+</p>
+
+<p>
+VALID NODE AUTHENTICATION REQUIRED.
+</p>
+
+<input
+    type="text"
+    id="code"
+    placeholder="ENTER NODE CODE"
+    autocomplete="off"
+>
+
+<button onclick="unlock()">
+AUTHENTICATE NODE
+</button>
+
+<div id="error">
+ACCESS DENIED // NODE CODE INVALID
+</div>
+
+</div>
+
+</div>
+
+
+<div id="content">
+
+
+<div class="notice">
+
+NODE AUTHENTICATED.<br>
+
+ARCHIVE 003 HAS BEEN RECOVERED.<br><br>
+
+WARNING // THIS NODE WAS PREVIOUSLY
+MARKED AS DELETED.
+
+</div>
+
+
+<div class="data">
+
+<strong>FILE ID:</strong> NV07-003<br>
+
+<strong>STATUS:</strong> RECOVERED<br>
+
+<strong>CLASSIFICATION:</strong> █████████<br>
+
+<strong>DATE:</strong> 07 / 07 / ????<br>
+
+<strong>SOURCE:</strong> UNKNOWN<br>
+
+<strong>NODE:</strong> 07<br>
+
+<strong>DATA INTEGRITY:</strong> 18%
+
+</div>
+
+
+<div class="signal">
+
+&gt; CONNECTING TO NODE 07...<br>
+
+&gt; CONNECTION ESTABLISHED.<br>
+
+&gt; ARCHIVE INDEX: CORRUPTED.<br>
+
+&gt; RECOVERING LAST TRANSMISSION...<br>
+
+&gt; 18% COMPLETE.<br>
+
+&gt; 31% COMPLETE.<br>
+
+&gt; 07% COMPLETE.<br><br>
+
+&gt; TRANSMISSION RECOVERED.<br><br>
+
+<span class="active">
+&gt; "THE FIRST FILE WAS NEVER THE FIRST."
+</span>
+
+<br><br>
+
+&gt; END TRANSMISSION.
+
+</div>
+
+
+<div class="notice">
+
+SYSTEM NOTICE //<br><br>
+
+ARCHIVE 004 REMAINS UNAVAILABLE.
+
+<br><br>
+
+THE DATABASE HAS DETECTED
+AN UNREGISTERED NODE.
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+NV-07 // ARCHIVE NETWORK © 2026 // RESTRICTED
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+function unlock() {
+
+    const input =
+        document.getElementById("code").value.trim();
+
+    const error =
+        document.getElementById("error");
+
+    if (input === "170241") {
+
+        document.getElementById("lock").style.display = "none";
+
+        document.getElementById("content").style.display = "block";
+
+    } else {
+
+        error.style.display = "block";
+
+    }
+
+}
+
+document
+.getElementById("code")
+.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        unlock();
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
+```
