@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,8 +17,8 @@
 
 body {
     margin: 0;
-    background: #050505;
-    color: #d0d0d0;
+    background: #030303;
+    color: #cfcfcf;
     font-family: "Courier New", monospace;
 }
 
@@ -34,15 +35,15 @@ header {
 }
 
 .system {
-    color: #666;
-    font-size: 12px;
-    letter-spacing: 2px;
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 3px;
 }
 
 h1 {
-    font-size: 42px;
-    letter-spacing: 7px;
     margin: 15px 0;
+    font-size: 45px;
+    letter-spacing: 8px;
 }
 
 .subtitle {
@@ -52,39 +53,67 @@ h1 {
 
 .back {
     display: inline-block;
-    margin-bottom: 35px;
-    color: #666;
+    margin-bottom: 40px;
+    padding: 10px 15px;
+
+    border: 1px solid #292929;
+
+    color: #555;
     text-decoration: none;
-    font-size: 12px;
+
+    font-size: 11px;
 }
 
 .back:hover {
     color: #aaa;
+    border-color: #666;
 }
 
-.lock-box {
+
+/* LOCK */
+
+#lock {
     border: 1px solid #252525;
-    background: #080808;
-    padding: 30px;
-    margin-bottom: 30px;
+    background: #070707;
+    padding: 45px 25px;
+    text-align: center;
 }
 
-.label {
+.lock-symbol {
+    color: #444;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#lock h2 {
+    color: #999;
+    letter-spacing: 4px;
+    font-size: 20px;
+}
+
+#lock p {
     color: #555;
     font-size: 11px;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+    line-height: 1.8;
 }
 
 input {
-    width: 100%;
-    padding: 15px;
-    background: #030303;
+    width: min(320px, 100%);
+
+    padding: 14px;
+    margin-top: 20px;
+
+    background: #020202;
     border: 1px solid #333;
+
     color: #ddd;
+
     font-family: "Courier New", monospace;
+    text-align: center;
+
+    letter-spacing: 4px;
+
     outline: none;
-    margin-bottom: 12px;
 }
 
 input:focus {
@@ -92,27 +121,46 @@ input:focus {
 }
 
 button {
-    width: 100%;
-    padding: 14px;
-    background: #0a0a0a;
+    display: block;
+
+    width: min(320px, 100%);
+
+    margin: 12px auto 0;
+
+    padding: 13px;
+
+    background: #080808;
+
     border: 1px solid #333;
-    color: #888;
+
+    color: #777;
+
     font-family: "Courier New", monospace;
-    cursor: pointer;
+
     letter-spacing: 2px;
+
+    cursor: pointer;
 }
 
 button:hover {
-    background: #101010;
-    color: #ccc;
+    color: #ddd;
+    border-color: #666;
 }
 
-.error {
-    color: #555;
-    font-size: 11px;
-    margin-top: 15px;
+#error {
     display: none;
+
+    margin-top: 18px;
+
+    color: #666;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
 }
+
+
+/* ARCHIVE */
 
 #archive {
     display: none;
@@ -120,61 +168,163 @@ button:hover {
 
 .notice {
     border-left: 2px solid #555;
-    padding: 15px;
-    background: #080808;
-    color: #777;
-    font-size: 11px;
-    line-height: 1.8;
+
+    background: #070707;
+
+    padding: 18px;
+
     margin-bottom: 30px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.9;
 }
 
 .image-box {
     border: 1px solid #222;
+
     padding: 10px;
-    background: #080808;
+
+    background: #070707;
 }
 
 .image-box img {
-    width: 100%;
     display: block;
+
+    width: 100%;
+
+    height: auto;
+}
+
+.caption {
+    padding: 12px 5px 5px;
+
+    color: #444;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
 }
 
 .metadata {
-    border: 1px solid #222;
     margin-top: 20px;
+
+    border: 1px solid #222;
+
     padding: 20px;
-    background: #080808;
+
+    background: #070707;
+
     color: #666;
+
     font-size: 11px;
+
     line-height: 2;
 }
 
-.terminal {
-    margin-top: 30px;
-    border: 1px solid #222;
-    background: #030303;
-    padding: 20px;
-    color: #777;
-    font-size: 12px;
-    line-height: 1.9;
+.metadata strong {
+    color: #aaa;
+
+    font-weight: normal;
 }
 
-.green {
+
+/* TERMINAL */
+
+.terminal {
+    margin-top: 30px;
+
+    border: 1px solid #222;
+
+    background: #020202;
+
+    padding: 22px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    line-height: 2;
+}
+
+.terminal .active {
     color: #aaa;
 }
 
-.hidden-signal {
-    color: #050505;
-    user-select: none;
+
+/* INDICE */
+
+.recovered-message {
+    margin-top: 30px;
+
+    border: 1px solid #292929;
+
+    background: #070707;
+
+    padding: 25px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 2;
 }
+
+.recovered-message .sequence {
+    display: block;
+
+    margin: 20px 0;
+
+    text-align: center;
+
+    color: #aaa;
+
+    font-size: 18px;
+
+    letter-spacing: 8px;
+}
+
+.recovered-message .corrupted {
+    color: #444;
+}
+
+
+/* FOOTER */
 
 footer {
     margin-top: 60px;
+
     padding-top: 20px;
+
     border-top: 1px solid #222;
+
     text-align: center;
-    color: #444;
+
+    color: #3d3d3d;
+
     font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 35px;
+        letter-spacing: 5px;
+    }
+
+    .container {
+        padding: 20px 12px;
+    }
+
+    .recovered-message .sequence {
+        letter-spacing: 4px;
+    }
+
 }
 
 </style>
@@ -207,12 +357,14 @@ NV-07 // INTERNAL DATABASE
 </a>
 
 
+<!-- ========================= -->
+<!-- LOCK -->
+<!-- ========================= -->
+
 <div id="lock">
 
-<div class="lock-box">
-
-<div class="label">
-ARCHIVE STATUS
+<div class="lock-symbol">
+■
 </div>
 
 <h2>
@@ -223,9 +375,9 @@ ARCHIVE LOCKED
 RECOVERY DATA REQUIRED.
 </p>
 
-<div class="label">
-ENTER CODE
-</div>
+<p>
+THIS NODE HAS BEEN FLAGGED FOR OBSERVATION.
+</p>
 
 <input
     type="text"
@@ -238,14 +390,16 @@ ENTER CODE
 AUTHENTICATE
 </button>
 
-<div id="error" class="error">
+<div id="error">
 ACCESS DENIED // INVALID CODE
 </div>
 
 </div>
 
-</div>
 
+<!-- ========================= -->
+<!-- ARCHIVE CONTENT -->
+<!-- ========================= -->
 
 <div id="archive">
 
@@ -264,6 +418,8 @@ FOR PUBLIC ACCESS.
 </div>
 
 
+<!-- IMAGE -->
+
 <div class="image-box">
 
 <img
@@ -271,27 +427,37 @@ FOR PUBLIC ACCESS.
     alt="Archive 002"
 >
 
+<div class="caption">
+
+RECOVERED IMAGE // CAMERA NODE 07
+
 </div>
 
+</div>
+
+
+<!-- METADATA -->
 
 <div class="metadata">
 
-FILE: NV07-002<br>
+<strong>FILE:</strong> NV07-002<br>
 
-CLASSIFICATION: RESTRICTED<br>
+<strong>CLASSIFICATION:</strong> RESTRICTED<br>
 
-TIMESTAMP: 03:18:09<br>
+<strong>TIMESTAMP:</strong> 03:18:09<br>
 
-NODE: 07<br>
+<strong>NODE:</strong> 07<br>
 
-SIGNAL: ACTIVE<br>
+<strong>SIGNAL:</strong> ACTIVE<br>
 
-SOURCE: UNKNOWN<br>
+<strong>SOURCE:</strong> UNKNOWN<br>
 
-DATA INTEGRITY: 41%
+<strong>DATA INTEGRITY:</strong> 41%
 
 </div>
 
+
+<!-- TERMINAL -->
 
 <div class="terminal">
 
@@ -301,7 +467,7 @@ DATA INTEGRITY: 41%
 
 &gt; RECOVERING DATA...<br>
 
-&gt; <span class="green">FILE NV07-002 FOUND.</span><br>
+&gt; FILE NV07-002 FOUND.<br>
 
 &gt; ANALYSING SIGNAL...<br>
 
@@ -315,7 +481,9 @@ DATA INTEGRITY: 41%
 
 &gt; DECODING AGAIN...<br>
 
-&gt; <span class="green">MESSAGE RECOVERED.</span><br><br>
+&gt; <span class="active">MESSAGE RECOVERED.</span>
+
+<br><br>
 
 &gt; "YOU WERE NOT SUPPOSED TO FIND THIS."
 
@@ -326,17 +494,66 @@ DATA INTEGRITY: 41%
 </div>
 
 
-<div class="notice">
+<!-- ========================= -->
+<!-- RECOVERED FRAGMENT -->
+<!-- ========================= -->
 
-SYSTEM NOTICE // THE NEXT ARCHIVE CANNOT BE ACCESSED
-THROUGH THE STANDARD DIRECTORY.
+<div class="recovered-message">
+
+RECOVERED TRANSMISSION FRAGMENT:
+
+<br><br>
+
+<span class="corrupted">
+[ DATA CORRUPTED ]
+</span>
+
+<br><br>
+
+LAST SYNCHRONIZATION:
+
+<span class="sequence">
+17 / 02 / 41
+</span>
+
+<br>
+
+&gt; SYSTEM NOTE:
+
+<br>
+
+THE ORIGINAL SEQUENCE WAS NOT STORED
+AS A DATE.
+
+<br><br>
+
+&gt; FORMAT ERROR.
+
+<br>
+
+&gt; EXPECTED FORMAT:
+
+<br>
+
+NODE / SIGNAL / TIME
+
+<br><br>
+
+&gt; DATA REMAINS INCOMPLETE.
 
 </div>
 
 
-<div class="hidden-signal">
+<div class="notice">
 
-NV07-170241
+SYSTEM NOTICE //<br><br>
+
+THE NEXT ARCHIVE CANNOT BE ACCESSED
+THROUGH THE STANDARD DIRECTORY.
+
+<br><br>
+
+AN UNREGISTERED NODE HAS BEEN DETECTED.
 
 </div>
 
@@ -378,6 +595,7 @@ function unlock() {
 
 }
 
+
 document
 .getElementById("code")
 .addEventListener("keydown", function(event) {
@@ -396,3 +614,4 @@ document
 </body>
 
 </html>
+```
