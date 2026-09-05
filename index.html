@@ -1,5 +1,5 @@
-```html
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -9,249 +9,298 @@
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #050505;
     }
 
     body {
-      background: #050505;
-      color: #d6d6d6;
-      font-family: "Courier New", monospace;
       min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% 30%, #111 0%, #070707 35%, #030303 100%);
+      color: #d8d8d8;
+      font-family: "Courier New", Courier, monospace;
     }
 
-    .top {
-      border-bottom: 1px solid #292929;
+    .topbar {
+      width: 100%;
       padding: 18px 30px;
+      border-bottom: 1px solid #252525;
       display: flex;
       justify-content: space-between;
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: #777;
+      color: #666;
+      font-size: 11px;
+      letter-spacing: 3px;
     }
 
     .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 70px 25px;
+      width: min(1100px, calc(100% - 40px));
+      margin: auto;
+      padding: 80px 0;
     }
 
-    .warning {
-      color: #777;
+    .system {
+      color: #555;
       font-size: 11px;
-      letter-spacing: 3px;
-      margin-bottom: 25px;
+      letter-spacing: 4px;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(42px, 8vw, 92px);
-      font-weight: normal;
-      letter-spacing: 10px;
-      color: #eeeeee;
-      margin-bottom: 10px;
+      color: #eee;
+      font-size: clamp(48px, 10vw, 110px);
+      font-weight: 400;
+      letter-spacing: 12px;
+      line-height: 1;
     }
 
-    .code {
+    .identifier {
+      margin-top: 18px;
       color: #555;
-      letter-spacing: 5px;
       font-size: 13px;
-      margin-bottom: 60px;
+      letter-spacing: 5px;
     }
 
-    .archive {
-      border: 1px solid #303030;
-      background: #090909;
-      padding: 25px;
+    .line {
+      width: 100%;
+      height: 1px;
+      background: #222;
+      margin: 55px 0;
+    }
+
+    .archive-box {
+      border: 1px solid #292929;
+      background: rgba(8, 8, 8, 0.92);
     }
 
     .archive-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid #242424;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid #242424;
-      padding-bottom: 18px;
-      margin-bottom: 25px;
+      gap: 20px;
       font-size: 12px;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
+    }
+
+    .archive-number {
+      color: #ddd;
     }
 
     .status {
-      color: #888;
+      color: #555;
     }
 
-    .image-wrapper {
+    .image-container {
+      padding: 18px;
       background: #020202;
-      border: 1px solid #202020;
-      padding: 12px;
-      margin-bottom: 25px;
     }
 
-    .image-wrapper img {
-      width: 100%;
-      max-height: 650px;
-      object-fit: contain;
+    .image-container img {
       display: block;
-      filter: grayscale(15%);
+      width: 100%;
+      height: auto;
+      max-height: 700px;
+      object-fit: contain;
+      border: 1px solid #191919;
     }
 
-    .metadata {
+    .info {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: #292929;
-      border: 1px solid #292929;
-      margin-bottom: 25px;
+      border-top: 1px solid #242424;
     }
 
-    .item {
-      background: #090909;
-      padding: 18px;
+    .info-item {
+      padding: 22px 24px;
+      border-bottom: 1px solid #242424;
+    }
+
+    .info-item:nth-child(odd) {
+      border-right: 1px solid #242424;
     }
 
     .label {
       display: block;
-      color: #555;
-      font-size: 10px;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 9px;
+      color: #4d4d4d;
+      font-size: 9px;
+      letter-spacing: 3px;
     }
 
     .value {
-      color: #bdbdbd;
+      color: #aaa;
       font-size: 13px;
+      letter-spacing: 1px;
     }
 
     .description {
-      border-left: 2px solid #333;
-      padding: 5px 20px;
-      color: #8d8d8d;
-      font-size: 13px;
-      line-height: 1.9;
+      padding: 30px 24px;
+      border-top: 1px solid #242424;
+      color: #777;
+      font-size: 12px;
+      line-height: 2;
     }
 
-    .hidden-message {
+    .notice {
       margin-top: 55px;
-      color: #171717;
+      padding: 20px;
+      border-left: 1px solid #333;
+      color: #444;
       font-size: 10px;
-      letter-spacing: 3px;
-      user-select: none;
+      line-height: 1.8;
+      letter-spacing: 2px;
     }
 
     footer {
-      border-top: 1px solid #202020;
-      margin-top: 80px;
+      margin-top: 90px;
       padding-top: 20px;
-      color: #3d3d3d;
-      font-size: 10px;
-      letter-spacing: 2px;
+      border-top: 1px solid #1d1d1d;
       display: flex;
       justify-content: space-between;
+      color: #353535;
+      font-size: 9px;
+      letter-spacing: 2px;
     }
 
     @media (max-width: 650px) {
-      .top {
+      .topbar {
         padding: 15px;
+        font-size: 9px;
       }
 
       .container {
-        padding: 45px 15px;
+        width: calc(100% - 24px);
+        padding: 55px 0;
       }
 
       h1 {
-        letter-spacing: 5px;
+        font-size: 48px;
+        letter-spacing: 6px;
       }
 
-      .metadata {
+      .identifier {
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .archive-header {
+        padding: 16px;
+        font-size: 9px;
+      }
+
+      .image-container {
+        padding: 10px;
+      }
+
+      .info {
         grid-template-columns: 1fr;
       }
 
-      .archive {
-        padding: 15px;
+      .info-item:nth-child(odd) {
+        border-right: none;
+      }
+
+      .info-item {
+        padding: 18px;
       }
 
       footer {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
       }
     }
   </style>
+
 </head>
 
 <body>
 
-  <div class="top">
+  <header class="topbar">
     <span>NV-07</span>
     <span>ACCESS // RESTRICTED</span>
-  </div>
+  </header>
 
   <main class="container">
 
-    <div class="warning">
-      [ ARCHIVE SYSTEM // NODE 07 ]
+```
+<div class="system">
+  [ ARCHIVE SYSTEM // NODE 07 ]
+</div>
+
+<h1>ARCHIVE</h1>
+
+<div class="identifier">
+  NV-07 / DATABASE / 001
+</div>
+
+<div class="line"></div>
+
+<section class="archive-box">
+
+  <div class="archive-header">
+    <span class="archive-number">ARCHIVE 001</span>
+    <span class="status">STATUS: UNKNOWN</span>
+  </div>
+
+  <div class="image-container">
+    <img
+      src="./assets/archive-001.png"
+      alt="Archive 001"
+    >
+  </div>
+
+  <div class="info">
+
+    <div class="info-item">
+      <span class="label">FILE IDENTIFIER</span>
+      <span class="value">NV07-001</span>
     </div>
 
-    <h1>ARCHIVE</h1>
-
-    <div class="code">
-      NV-07 / DATABASE / 001
+    <div class="info-item">
+      <span class="label">CLASSIFICATION</span>
+      <span class="value">UNIDENTIFIED</span>
     </div>
 
-    <section class="archive">
-
-      <div class="archive-header">
-        <span>ARCHIVE 001</span>
-        <span class="status">STATUS: UNKNOWN</span>
-      </div>
-
-      <div class="image-wrapper">
-        <img src="assets/archive-001.png" alt="Archive 001">
-      </div>
-
-      <div class="metadata">
-
-        <div class="item">
-          <span class="label">FILE</span>
-          <span class="value">NV07-001</span>
-        </div>
-
-        <div class="item">
-          <span class="label">CLASSIFICATION</span>
-          <span class="value">UNIDENTIFIED</span>
-        </div>
-
-        <div class="item">
-          <span class="label">DATE</span>
-          <span class="value">07 / 07 / ????</span>
-        </div>
-
-        <div class="item">
-          <span class="label">SOURCE</span>
-          <span class="value">UNKNOWN</span>
-        </div>
-
-      </div>
-
-      <div class="description">
-        Le fichier a été récupéré sans identification de source.
-        <br>
-        Aucune information concernant son origine n'a pu être vérifiée.
-        <br><br>
-        Certaines données semblent avoir été supprimées avant archivage.
-      </div>
-
-    </section>
-
-    <div class="hidden-message">
-      YOU WERE NOT SUPPOSED TO FIND THIS.
+    <div class="info-item">
+      <span class="label">DATE</span>
+      <span class="value">07 / 07 / ????</span>
     </div>
 
-    <footer>
-      <span>ARCHIVE NV-07</span>
-      <span>© 2026 // INTERNAL DATABASE</span>
-    </footer>
+    <div class="info-item">
+      <span class="label">SOURCE</span>
+      <span class="value">UNKNOWN</span>
+    </div>
+
+  </div>
+
+  <div class="description">
+    Le fichier a été récupéré sans identification de source.
+    <br>
+    Aucune information concernant son origine n'a pu être vérifiée.
+    <br>
+    Certaines données semblent avoir été supprimées avant archivage.
+  </div>
+
+</section>
+
+<div class="notice">
+  SYSTEM NOTICE // THIS FILE IS CURRENTLY UNDER OBSERVATION.
+  <br>
+  ACCESS TO ADDITIONAL DATA HAS BEEN RESTRICTED.
+</div>
+
+<footer>
+  <span>ARCHIVE NV-07</span>
+  <span>© 2026 // INTERNAL DATABASE</span>
+</footer>
+```
 
   </main>
 
 </body>
 </html>
-```
