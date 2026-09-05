@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ARCHIVE NV-07</title>
+    <title>NV-07 // ARCHIVE SYSTEM</title>
 
     <style>
         * {
@@ -14,227 +14,335 @@
         }
 
         html {
-            background: #050505;
+            background: #030303;
         }
 
         body {
             min-height: 100vh;
             background:
-                radial-gradient(
-                    circle at 50% 25%,
-                    #151515 0%,
-                    #080808 40%,
-                    #030303 100%
-                );
-            color: #d6d6d6;
-            font-family: "Courier New", Courier, monospace;
+                radial-gradient(circle at 50% 20%, #111 0%, #050505 45%, #010101 100%);
+            color: #bdbdbd;
+            font-family: "Courier New", monospace;
+            overflow-x: hidden;
         }
 
-        .topbar {
-            width: 100%;
-            padding: 18px 30px;
-            border-bottom: 1px solid #252525;
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,0.015) 0px,
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+            opacity: .25;
+        }
+
+        header {
+            height: 64px;
+            padding: 0 35px;
+            border-bottom: 1px solid #202020;
 
             display: flex;
+            align-items: center;
             justify-content: space-between;
 
-            color: #555;
-            font-size: 11px;
+            font-size: 10px;
             letter-spacing: 3px;
-        }
-
-        .container {
-            width: min(1100px, calc(100% - 40px));
-            margin: auto;
-            padding: 80px 0;
-        }
-
-        .system {
-            margin-bottom: 22px;
-
             color: #555;
-            font-size: 11px;
-            letter-spacing: 4px;
+        }
+
+        .online {
+            color: #777;
+        }
+
+        .online::before {
+            content: "●";
+            margin-right: 8px;
+            font-size: 8px;
+        }
+
+        main {
+            width: min(1150px, calc(100% - 40px));
+            margin: auto;
+            padding: 85px 0 100px;
+        }
+
+        .classification {
+            color: #454545;
+            font-size: 10px;
+            letter-spacing: 5px;
+            margin-bottom: 25px;
         }
 
         h1 {
-            color: #eeeeee;
-            font-size: clamp(48px, 10vw, 110px);
+            color: #e8e8e8;
+            font-size: clamp(55px, 11vw, 125px);
             font-weight: 400;
-            letter-spacing: 12px;
-            line-height: 1;
+            letter-spacing: 14px;
+            line-height: .9;
         }
 
-        .identifier {
-            margin-top: 18px;
-
+        .subtitle {
+            margin-top: 25px;
             color: #555;
-            font-size: 13px;
-            letter-spacing: 5px;
-        }
-
-        .line {
-            width: 100%;
-            height: 1px;
-
-            margin: 55px 0;
-
-            background: #222;
-        }
-
-        .archive-box {
-            border: 1px solid #292929;
-            background: rgba(8, 8, 8, 0.94);
-        }
-
-        .archive-header {
-            padding: 20px 24px;
-
-            border-bottom: 1px solid #242424;
-
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-
             font-size: 12px;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
         }
 
-        .archive-number {
-            color: #dddddd;
+        .terminal-line {
+            margin: 60px 0;
+            height: 1px;
+            background: #1e1e1e;
+            position: relative;
         }
 
-        .status {
-            color: #555555;
-        }
-
-        .image-container {
-            padding: 18px;
-            background: #020202;
-        }
-
-        .image-container img {
-            display: block;
-
-            width: 100%;
-            height: auto;
-            max-height: 700px;
-
-            object-fit: contain;
-
-            border: 1px solid #191919;
-        }
-
-        .info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-
-            border-top: 1px solid #242424;
-        }
-
-        .info-item {
-            padding: 22px 24px;
-
-            border-bottom: 1px solid #242424;
-        }
-
-        .info-item:nth-child(odd) {
-            border-right: 1px solid #242424;
-        }
-
-        .label {
-            display: block;
-
-            margin-bottom: 9px;
-
-            color: #4d4d4d;
+        .terminal-line::after {
+            content: "NV-07";
+            position: absolute;
+            right: 0;
+            top: -8px;
+            background: #050505;
+            padding-left: 15px;
+            color: #3c3c3c;
             font-size: 9px;
             letter-spacing: 3px;
         }
 
+        .system-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            border: 1px solid #202020;
+            margin-bottom: 55px;
+        }
+
+        .system-cell {
+            padding: 20px;
+            border-right: 1px solid #202020;
+        }
+
+        .system-cell:last-child {
+            border-right: none;
+        }
+
+        .label {
+            display: block;
+            color: #3d3d3d;
+            font-size: 8px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
         .value {
-            color: #aaaaaa;
-            font-size: 13px;
+            color: #999;
+            font-size: 12px;
             letter-spacing: 1px;
         }
 
-        .description {
-            padding: 30px 24px;
-
-            border-top: 1px solid #242424;
-
-            color: #777777;
-            font-size: 12px;
-            line-height: 2;
+        .archive-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
         }
 
-        .notice {
-            margin-top: 55px;
-            padding: 20px;
+        .archive-title h2 {
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: #aaa;
+        }
 
-            border-left: 1px solid #333333;
-
-            color: #444444;
-            font-size: 10px;
-            line-height: 1.8;
+        .count {
+            font-size: 9px;
             letter-spacing: 2px;
+            color: #444;
+        }
+
+        .archives {
+            display: grid;
+            gap: 2px;
+        }
+
+        .archive {
+            position: relative;
+            min-height: 95px;
+            padding: 24px;
+
+            border: 1px solid #202020;
+            background: rgba(7,7,7,.8);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            transition: .25s;
+        }
+
+        .archive.available {
+            cursor: pointer;
+        }
+
+        .archive.available:hover {
+            background: #101010;
+            border-color: #383838;
+            transform: translateX(4px);
+        }
+
+        .archive-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .archive-number {
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .archive-name {
+            color: #bdbdbd;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .archive-status {
+            color: #444;
+            font-size: 9px;
+            letter-spacing: 2px;
+        }
+
+        .available .archive-status {
+            color: #777;
+        }
+
+        .locked {
+            opacity: .38;
+        }
+
+        .lock {
+            font-size: 13px;
+            margin-right: 8px;
+        }
+
+        .archive-image {
+            margin-top: 45px;
+            border: 1px solid #202020;
+            background: #020202;
+            padding: 12px;
+        }
+
+        .archive-image img {
+            display: block;
+            width: 100%;
+            max-height: 650px;
+            object-fit: contain;
+            border: 1px solid #171717;
+        }
+
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid #202020;
+            border-top: none;
+        }
+
+        .metadata div {
+            padding: 20px;
+            border-right: 1px solid #202020;
+        }
+
+        .metadata div:last-child {
+            border-right: none;
+        }
+
+        .warning {
+            margin-top: 55px;
+            padding: 22px;
+
+            border-left: 1px solid #444;
+            background: rgba(255,255,255,.01);
+
+            color: #454545;
+            font-size: 9px;
+            line-height: 2;
+            letter-spacing: 2px;
+        }
+
+        .warning strong {
+            color: #666;
+            font-weight: normal;
         }
 
         footer {
             margin-top: 90px;
             padding-top: 20px;
-
-            border-top: 1px solid #1d1d1d;
+            border-top: 1px solid #171717;
 
             display: flex;
             justify-content: space-between;
 
-            color: #353535;
-            font-size: 9px;
+            color: #303030;
+            font-size: 8px;
             letter-spacing: 2px;
         }
 
-        @media (max-width: 650px) {
+        @media (max-width: 700px) {
 
-            .topbar {
-                padding: 15px;
-                font-size: 9px;
+            header {
+                padding: 0 15px;
             }
 
-            .container {
+            main {
                 width: calc(100% - 24px);
-                padding: 55px 0;
+                padding-top: 55px;
             }
 
             h1 {
-                font-size: 48px;
-                letter-spacing: 6px;
+                letter-spacing: 7px;
             }
 
-            .identifier {
-                font-size: 10px;
-                letter-spacing: 3px;
-            }
-
-            .archive-header {
-                padding: 16px;
-                font-size: 9px;
-            }
-
-            .image-container {
-                padding: 10px;
-            }
-
-            .info {
+            .system-grid {
                 grid-template-columns: 1fr;
             }
 
-            .info-item:nth-child(odd) {
+            .system-cell {
+                border-right: none;
+                border-bottom: 1px solid #202020;
+            }
+
+            .system-cell:last-child {
+                border-bottom: none;
+            }
+
+            .metadata {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .metadata div:nth-child(2) {
                 border-right: none;
             }
 
-            .info-item {
+            .metadata div:nth-child(3),
+            .metadata div:nth-child(4) {
+                border-top: 1px solid #202020;
+            }
+
+            .archive-left {
+                gap: 12px;
+            }
+
+            .archive {
                 padding: 18px;
+            }
+
+            .archive-name {
+                font-size: 10px;
             }
 
             footer {
@@ -247,110 +355,165 @@
 
 <body>
 
-    <header class="topbar">
-        <span>NV-07</span>
-        <span>ACCESS // RESTRICTED</span>
-    </header>
+<header>
+    <span>NV-07 // INTERNAL DATABASE</span>
+    <span class="online">SYSTEM ONLINE</span>
+</header>
 
-    <main class="container">
+<main>
 
-        <div class="system">
-            [ ARCHIVE SYSTEM // NODE 07 ]
+    <div class="classification">
+        [ CLASSIFIED ARCHIVE NETWORK ]
+    </div>
+
+    <h1>NV-07</h1>
+
+    <div class="subtitle">
+        ARCHIVE / NODE 07 / ACCESS LEVEL UNKNOWN
+    </div>
+
+    <div class="terminal-line"></div>
+
+    <section class="system-grid">
+
+        <div class="system-cell">
+            <span class="label">SYSTEM STATUS</span>
+            <span class="value">OPERATIONAL</span>
         </div>
 
-        <h1>ARCHIVE</h1>
-
-        <div class="identifier">
-            NV-07 / DATABASE / 001
+        <div class="system-cell">
+            <span class="label">ARCHIVES FOUND</span>
+            <span class="value">001</span>
         </div>
 
-        <div class="line"></div>
+        <div class="system-cell">
+            <span class="label">ACCESS</span>
+            <span class="value">PARTIAL</span>
+        </div>
 
-        <section class="archive-box">
+    </section>
 
-            <div class="archive-header">
-                <span class="archive-number">
-                    ARCHIVE 001
+    <div class="archive-title">
+        <h2>ARCHIVE DIRECTORY</h2>
+        <span class="count">01 / 07</span>
+    </div>
+
+    <section class="archives">
+
+        <div class="archive available">
+
+            <div class="archive-left">
+                <span class="archive-number">001</span>
+
+                <span class="archive-name">
+                    UNIDENTIFIED FILE
                 </span>
+            </div>
 
-                <span class="status">
-                    STATUS: UNKNOWN
+            <span class="archive-status">
+                AVAILABLE
+            </span>
+
+        </div>
+
+        <div class="archive locked">
+
+            <div class="archive-left">
+                <span class="archive-number">002</span>
+
+                <span class="archive-name">
+                    █████████████
                 </span>
             </div>
 
-            <div class="image-container">
-                <img
-                    src="./assets/archive-001.png"
-                    alt="Archive 001"
-                >
-            </div>
+            <span class="archive-status">
+                <span class="lock">■</span> LOCKED
+            </span>
 
-            <div class="info">
-
-                <div class="info-item">
-                    <span class="label">
-                        FILE IDENTIFIER
-                    </span>
-
-                    <span class="value">
-                        NV07-001
-                    </span>
-                </div>
-
-                <div class="info-item">
-                    <span class="label">
-                        CLASSIFICATION
-                    </span>
-
-                    <span class="value">
-                        UNIDENTIFIED
-                    </span>
-                </div>
-
-                <div class="info-item">
-                    <span class="label">
-                        DATE
-                    </span>
-
-                    <span class="value">
-                        07 / 07 / ????
-                    </span>
-                </div>
-
-                <div class="info-item">
-                    <span class="label">
-                        SOURCE
-                    </span>
-
-                    <span class="value">
-                        UNKNOWN
-                    </span>
-                </div>
-
-            </div>
-
-            <div class="description">
-                Le fichier a été récupéré sans identification de source.
-                <br>
-                Aucune information concernant son origine n'a pu être vérifiée.
-                <br>
-                Certaines données semblent avoir été supprimées avant archivage.
-            </div>
-
-        </section>
-
-        <div class="notice">
-            SYSTEM NOTICE // THIS FILE IS CURRENTLY UNDER OBSERVATION.
-            <br>
-            ACCESS TO ADDITIONAL DATA HAS BEEN RESTRICTED.
         </div>
 
-        <footer>
-            <span>ARCHIVE NV-07</span>
-            <span>© 2026 // INTERNAL DATABASE</span>
-        </footer>
+        <div class="archive locked">
 
-    </main>
+            <div class="archive-left">
+                <span class="archive-number">003</span>
+
+                <span class="archive-name">
+                    █████████████
+                </span>
+            </div>
+
+            <span class="archive-status">
+                <span class="lock">■</span> LOCKED
+            </span>
+
+        </div>
+
+        <div class="archive locked">
+
+            <div class="archive-left">
+                <span class="archive-number">004</span>
+
+                <span class="archive-name">
+                    █████████████
+                </span>
+            </div>
+
+            <span class="archive-status">
+                <span class="lock">■</span> LOCKED
+            </span>
+
+        </div>
+
+    </section>
+
+    <section class="archive-image">
+
+        <img
+            src="./assets/archive-001.png"
+            alt="ARCHIVE 001"
+        >
+
+    </section>
+
+    <section class="metadata">
+
+        <div>
+            <span class="label">FILE</span>
+            <span class="value">NV07-001</span>
+        </div>
+
+        <div>
+            <span class="label">CLASSIFICATION</span>
+            <span class="value">UNKNOWN</span>
+        </div>
+
+        <div>
+            <span class="label">DATE</span>
+            <span class="value">07 / 07 / ????</span>
+        </div>
+
+        <div>
+            <span class="label">SOURCE</span>
+            <span class="value">UNKNOWN</span>
+        </div>
+
+    </section>
+
+    <div class="warning">
+        <strong>SYSTEM NOTICE //</strong>
+        ARCHIVE 001 HAS BEEN FLAGGED FOR FURTHER OBSERVATION.
+        <br>
+        SOME ASSOCIATED DATA MAY HAVE BEEN REMOVED OR CORRUPTED.
+        <br>
+        DO NOT ATTEMPT TO ACCESS RESTRICTED NODES.
+    </div>
+
+    <footer>
+        <span>NV-07 // ARCHIVE NETWORK</span>
+        <span>© 2026 // RESTRICTED</span>
+    </footer>
+
+</main>
 
 </body>
 </html>
