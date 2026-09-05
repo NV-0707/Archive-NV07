@@ -1,0 +1,476 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NV07-001 // RECOVERED FILE</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background: #030303;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 15%, #111 0%, #050505 45%, #010101 100%);
+            color: #aaa;
+            font-family: "Courier New", monospace;
+            overflow-x: hidden;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,0.018) 0px,
+                    rgba(255,255,255,0.018) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            opacity: .25;
+        }
+
+        header {
+            height: 64px;
+            padding: 0 35px;
+
+            border-bottom: 1px solid #202020;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            color: #555;
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .status {
+            color: #777;
+        }
+
+        .status::before {
+            content: "●";
+            margin-right: 8px;
+            font-size: 8px;
+        }
+
+        main {
+            width: min(1100px, calc(100% - 40px));
+            margin: auto;
+            padding: 70px 0 100px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 55px;
+
+            color: #444;
+            text-decoration: none;
+
+            font-size: 9px;
+            letter-spacing: 3px;
+
+            transition: .2s;
+        }
+
+        .back:hover {
+            color: #888;
+        }
+
+        .classification {
+            color: #3d3d3d;
+            font-size: 9px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #e4e4e4;
+            font-size: clamp(40px, 8vw, 90px);
+            font-weight: 400;
+            letter-spacing: 10px;
+        }
+
+        .subtitle {
+            margin-top: 18px;
+
+            color: #555;
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .line {
+            height: 1px;
+            background: #202020;
+            margin: 50px 0;
+        }
+
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            border: 1px solid #202020;
+            margin-bottom: 45px;
+        }
+
+        .file-cell {
+            padding: 20px;
+            border-right: 1px solid #202020;
+        }
+
+        .file-cell:last-child {
+            border-right: none;
+        }
+
+        .label {
+            display: block;
+
+            color: #3d3d3d;
+            font-size: 8px;
+            letter-spacing: 3px;
+
+            margin-bottom: 10px;
+        }
+
+        .value {
+            color: #999;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            margin-bottom: 15px;
+
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 4px;
+        }
+
+        .text-box {
+            border: 1px solid #202020;
+            background: rgba(5,5,5,.8);
+
+            padding: 28px;
+
+            color: #777;
+            font-size: 11px;
+            line-height: 2;
+
+            letter-spacing: 1px;
+        }
+
+        .redacted {
+            color: #181818;
+            background: #181818;
+            padding: 0 5px;
+        }
+
+        .image-box {
+            margin-top: 45px;
+
+            border: 1px solid #202020;
+            padding: 12px;
+
+            background: #020202;
+        }
+
+        .image-box img {
+            display: block;
+
+            width: 100%;
+            max-height: 650px;
+
+            object-fit: contain;
+
+            border: 1px solid #171717;
+        }
+
+        .image-caption {
+            padding: 15px 5px 5px;
+
+            color: #3d3d3d;
+            font-size: 8px;
+            letter-spacing: 3px;
+        }
+
+        .recovered {
+            margin-top: 45px;
+
+            border-left: 1px solid #444;
+            padding: 22px;
+
+            background: rgba(255,255,255,.01);
+
+            color: #555;
+            font-size: 10px;
+            line-height: 2.2;
+            letter-spacing: 2px;
+        }
+
+        .recovered strong {
+            color: #777;
+            font-weight: normal;
+        }
+
+        .terminal {
+            margin-top: 45px;
+
+            border: 1px solid #202020;
+            padding: 25px;
+
+            background: #020202;
+
+            color: #555;
+            font-size: 10px;
+            line-height: 2;
+
+            letter-spacing: 2px;
+        }
+
+        .terminal .cursor {
+            color: #888;
+        }
+
+        .hidden-marker {
+            color: #090909;
+            user-select: none;
+        }
+
+        footer {
+            margin-top: 90px;
+            padding-top: 20px;
+
+            border-top: 1px solid #171717;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #303030;
+            font-size: 8px;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 0 15px;
+            }
+
+            main {
+                width: calc(100% - 24px);
+                padding-top: 45px;
+            }
+
+            h1 {
+                letter-spacing: 6px;
+            }
+
+            .file-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .file-cell:nth-child(2) {
+                border-right: none;
+            }
+
+            .file-cell:nth-child(3),
+            .file-cell:nth-child(4) {
+                border-top: 1px solid #202020;
+            }
+
+            .file-cell:nth-child(4) {
+                border-right: none;
+            }
+
+            .text-box {
+                padding: 20px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <span>NV-07 // INTERNAL DATABASE</span>
+    <span class="status">SYSTEM ONLINE</span>
+</header>
+
+<main>
+
+    <a class="back" href="index.html">
+        ← RETURN TO ARCHIVE DIRECTORY
+    </a>
+
+    <div class="classification">
+        [ RECOVERED ARCHIVE ]
+    </div>
+
+    <h1>ARCHIVE 001</h1>
+
+    <div class="subtitle">
+        FILE NV07-001 / PARTIALLY RECOVERED
+    </div>
+
+    <div class="line"></div>
+
+    <section class="file-grid">
+
+        <div class="file-cell">
+            <span class="label">FILE ID</span>
+            <span class="value">NV07-001</span>
+        </div>
+
+        <div class="file-cell">
+            <span class="label">STATUS</span>
+            <span class="value">PARTIALLY RECOVERED</span>
+        </div>
+
+        <div class="file-cell">
+            <span class="label">DATE</span>
+            <span class="value">07 / 07 / ????</span>
+        </div>
+
+        <div class="file-cell">
+            <span class="label">SOURCE</span>
+            <span class="value">UNKNOWN</span>
+        </div>
+
+    </section>
+
+    <div class="section-title">
+        RECOVERED DESCRIPTION
+    </div>
+
+    <section class="text-box">
+
+        The original file associated with this archive
+        could not be completely recovered.
+
+        <br><br>
+
+        Several portions of the record appear to have
+        been deliberately removed.
+
+        <br><br>
+
+        The remaining data indicates that the file was
+        accessed <span class="redacted">████████</span>
+        times before being transferred to this node.
+
+        <br><br>
+
+        No authorized user has been identified.
+
+    </section>
+
+    <section class="image-box">
+
+        <img
+            src="./assets/archive-001.png"
+            alt="RECOVERED ARCHIVE 001"
+        >
+
+        <div class="image-caption">
+            RECOVERED IMAGE // SOURCE UNKNOWN
+        </div>
+
+    </section>
+
+    <section class="recovered">
+
+        <strong>RECOVERED DATA //</strong>
+
+        <br>
+
+        TIMESTAMP: 03:17:42
+
+        <br>
+
+        LOCATION: <span class="redacted">████████████</span>
+
+        <br>
+
+        SIGNAL: DETECTED
+
+        <br>
+
+        STATUS: UNRESOLVED
+
+    </section>
+
+    <section class="terminal">
+
+        &gt; ANALYSING FILE NV07-001...
+
+        <br>
+
+        &gt; DATA INTEGRITY: 63%
+
+        <br>
+
+        &gt; CORRUPTED SECTORS: 04
+
+        <br>
+
+        &gt; EXTERNAL SIGNAL: DETECTED
+
+        <br>
+
+        &gt; CONNECTION: <span class="redacted">████████</span>
+
+        <br>
+
+        &gt; ARCHIVE STATUS: OBSERVATION
+
+        <br><br>
+
+        &gt; <span class="cursor">_</span>
+
+    </section>
+
+    <!--
+        NV07 SYSTEM NOTE
+        DO NOT DISPLAY THIS MESSAGE.
+        NODE: 07
+        SIGNAL: 031742
+    -->
+
+    <div class="hidden-marker">
+        NV07-031742
+    </div>
+
+    <footer>
+
+        <span>NV-07 // ARCHIVE NETWORK</span>
+
+        <span>NV07-001 // RESTRICTED</span>
+
+    </footer>
+
+</main>
+
+</body>
+</html>
+```
