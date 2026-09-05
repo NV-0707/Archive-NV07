@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NV-07 // ARCHIVE 002</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -14,255 +17,382 @@
 body {
     margin: 0;
     background: #050505;
-    color: #d8d8d8;
+    color: #d0d0d0;
     font-family: "Courier New", monospace;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
     padding: 30px 20px;
 }
 
 header {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #292929;
     padding-bottom: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .system {
     color: #666;
     font-size: 12px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 h1 {
     font-size: 42px;
     letter-spacing: 7px;
-    margin: 12px 0;
+    margin: 15px 0;
 }
 
-.classified {
+.subtitle {
     color: #555;
     letter-spacing: 3px;
 }
 
 .back {
     display: inline-block;
+    margin-bottom: 35px;
     color: #666;
     text-decoration: none;
-    border: 1px solid #292929;
-    padding: 10px 15px;
-    margin-bottom: 50px;
+    font-size: 12px;
 }
 
 .back:hover {
-    color: #fff;
-    border-color: #777;
+    color: #aaa;
 }
 
-.lock {
-    text-align: center;
-    border: 1px solid #292929;
-    padding: 50px 25px;
+.lock-box {
+    border: 1px solid #252525;
     background: #080808;
+    padding: 30px;
+    margin-bottom: 30px;
 }
 
-.lock-symbol {
-    font-size: 40px;
+.label {
     color: #555;
-    margin-bottom: 20px;
-}
-
-.lock h2 {
-    font-size: 22px;
-    letter-spacing: 4px;
-    margin-bottom: 10px;
-}
-
-.lock p {
-    color: #555;
-    font-size: 12px;
-    line-height: 1.8;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
 input {
     width: 100%;
-    max-width: 300px;
-    margin-top: 25px;
-    padding: 14px;
+    padding: 15px;
     background: #030303;
     border: 1px solid #333;
     color: #ddd;
     font-family: "Courier New", monospace;
-    text-align: center;
-    letter-spacing: 4px;
     outline: none;
+    margin-bottom: 12px;
 }
 
 input:focus {
-    border-color: #777;
+    border-color: #666;
 }
 
 button {
-    display: block;
-    margin: 15px auto 0;
-    padding: 12px 25px;
-    background: #080808;
+    width: 100%;
+    padding: 14px;
+    background: #0a0a0a;
     border: 1px solid #333;
-    color: #777;
+    color: #888;
     font-family: "Courier New", monospace;
     cursor: pointer;
     letter-spacing: 2px;
 }
 
 button:hover {
-    color: #fff;
-    border-color: #777;
+    background: #101010;
+    color: #ccc;
 }
 
-#error {
-    display: none;
-    margin-top: 20px;
-    color: #666;
+.error {
+    color: #555;
     font-size: 11px;
+    margin-top: 15px;
+    display: none;
 }
 
 #archive {
     display: none;
 }
 
-.data {
-    border: 1px solid #292929;
-    padding: 25px;
-    background: #080808;
-    line-height: 2;
-    color: #888;
-}
-
-.data strong {
-    color: #bbb;
-    font-weight: normal;
-}
-
-.warning {
-    margin-top: 30px;
-    border: 1px solid #292929;
+.notice {
+    border-left: 2px solid #555;
     padding: 15px;
-    color: #555;
+    background: #080808;
+    color: #777;
     font-size: 11px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.image-box {
+    border: 1px solid #222;
+    padding: 10px;
+    background: #080808;
+}
+
+.image-box img {
+    width: 100%;
+    display: block;
+}
+
+.metadata {
+    border: 1px solid #222;
+    margin-top: 20px;
+    padding: 20px;
+    background: #080808;
+    color: #666;
+    font-size: 11px;
+    line-height: 2;
+}
+
+.terminal {
+    margin-top: 30px;
+    border: 1px solid #222;
+    background: #030303;
+    padding: 20px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.green {
+    color: #aaa;
+}
+
+.hidden-signal {
+    color: #050505;
+    user-select: none;
 }
 
 footer {
     margin-top: 60px;
     padding-top: 20px;
     border-top: 1px solid #222;
-    color: #444;
     text-align: center;
-    font-size: 11px;
+    color: #444;
+    font-size: 10px;
 }
+
 </style>
+
 </head>
+
 
 <body>
 
 <div class="container">
 
+
 <header>
-    <div class="system">NV-07 // INTERNAL DATABASE</div>
-    <h1>ARCHIVE 002</h1>
-    <div class="classified">[ RESTRICTED ACCESS ]</div>
+
+<div class="system">
+NV-07 // INTERNAL DATABASE
+</div>
+
+<h1>ARCHIVE 002</h1>
+
+<div class="subtitle">
+[ RESTRICTED ACCESS ]
+</div>
+
 </header>
 
+
 <a href="index.html" class="back">
-    ← RETURN TO ARCHIVE DIRECTORY
+← RETURN TO ARCHIVE DIRECTORY
 </a>
 
-<div class="lock" id="lock">
 
-    <div class="lock-symbol">■</div>
+<div id="lock">
 
-    <h2>ARCHIVE LOCKED</h2>
+<div class="lock-box">
 
-    <p>
-        THIS ARCHIVE REQUIRES A VALID<br>
-        RECOVERY CODE.
-    </p>
+<div class="label">
+ARCHIVE STATUS
+</div>
 
-    <input
-        type="text"
-        id="code"
-        placeholder="ENTER CODE"
-        autocomplete="off"
-    >
+<h2>
+ARCHIVE LOCKED
+</h2>
 
-    <button onclick="unlock()">
-        AUTHENTICATE
-    </button>
+<p>
+RECOVERY DATA REQUIRED.
+</p>
 
-    <div id="error">
-        ACCESS DENIED // INVALID CODE
-    </div>
+<div class="label">
+ENTER CODE
+</div>
+
+<input
+    type="text"
+    id="code"
+    placeholder="ENTER RECOVERY CODE"
+    autocomplete="off"
+>
+
+<button onclick="unlock()">
+AUTHENTICATE
+</button>
+
+<div id="error" class="error">
+ACCESS DENIED // INVALID CODE
+</div>
 
 </div>
+
+</div>
+
 
 <div id="archive">
 
-    <h2>ACCESS GRANTED</h2>
 
-    <div class="data">
+<div class="notice">
 
-        &gt; RECOVERY CODE ACCEPTED<br>
-        &gt; FILE: NV07-002<br>
-        &gt; STATUS: RECOVERED<br>
-        &gt; DATA INTEGRITY: 41%<br>
-        &gt; SOURCE: UNKNOWN<br>
-        &gt; SIGNAL: <strong>ACTIVE</strong>
+ACCESS GRANTED.<br>
 
-    </div>
+RECOVERY CODE ACCEPTED.<br>
 
-    <div class="warning">
-        WARNING: ARCHIVE 002 CONTAINS UNVERIFIED DATA.
-    </div>
+PARTIAL DATA RECOVERED.<br><br>
+
+WARNING // ARCHIVE 002 WAS NOT INTENDED
+FOR PUBLIC ACCESS.
 
 </div>
+
+
+<div class="image-box">
+
+<img
+    src="./assets/archive-002.png"
+    alt="Archive 002"
+>
+
+</div>
+
+
+<div class="metadata">
+
+FILE: NV07-002<br>
+
+CLASSIFICATION: RESTRICTED<br>
+
+TIMESTAMP: 03:18:09<br>
+
+NODE: 07<br>
+
+SIGNAL: ACTIVE<br>
+
+SOURCE: UNKNOWN<br>
+
+DATA INTEGRITY: 41%
+
+</div>
+
+
+<div class="terminal">
+
+&gt; CONNECTING TO NODE 07...<br>
+
+&gt; CONNECTION ESTABLISHED.<br>
+
+&gt; RECOVERING DATA...<br>
+
+&gt; <span class="green">FILE NV07-002 FOUND.</span><br>
+
+&gt; ANALYSING SIGNAL...<br>
+
+&gt; SIGNAL STRENGTH: 17%<br>
+
+&gt; UNKNOWN TRANSMISSION DETECTED.<br>
+
+&gt; DECODING...<br>
+
+&gt; ERROR.<br>
+
+&gt; DECODING AGAIN...<br>
+
+&gt; <span class="green">MESSAGE RECOVERED.</span><br><br>
+
+&gt; "YOU WERE NOT SUPPOSED TO FIND THIS."
+
+<br><br>
+
+&gt; END TRANSMISSION.
+
+</div>
+
+
+<div class="notice">
+
+SYSTEM NOTICE // THE NEXT ARCHIVE CANNOT BE ACCESSED
+THROUGH THE STANDARD DIRECTORY.
+
+</div>
+
+
+<div class="hidden-signal">
+
+NV07-170241
+
+</div>
+
+
+</div>
+
 
 <footer>
-    NV-07 // ARCHIVE NETWORK © 2026 // RESTRICTED
+
+NV-07 // ARCHIVE NETWORK © 2026 // RESTRICTED
+
 </footer>
 
+
 </div>
+
 
 <script>
 
 function unlock() {
 
-    const input = document.getElementById("code");
-    const lock = document.getElementById("lock");
-    const archive = document.getElementById("archive");
-    const error = document.getElementById("error");
+    const code =
+        document.getElementById("code").value.trim();
 
-    if (input.value.trim() === "031742") {
+    const error =
+        document.getElementById("error");
 
-        lock.style.display = "none";
-        archive.style.display = "block";
+    if (code === "031742") {
+
+        document.getElementById("lock").style.display = "none";
+
+        document.getElementById("archive").style.display = "block";
 
     } else {
 
         error.style.display = "block";
 
     }
+
 }
 
-document.getElementById("code").addEventListener("keydown", function(event) {
+document
+.getElementById("code")
+.addEventListener("keydown", function(event) {
 
     if (event.key === "Enter") {
+
         unlock();
+
     }
 
 });
 
 </script>
 
+
 </body>
+
 </html>
